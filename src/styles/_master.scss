@@ -1,0 +1,281 @@
+.app {
+  height: 100vh;
+
+  .page-container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: $m-size;
+    background-color: $off-white;
+  }
+}
+
+// .svg-container {
+//   background-image: url('../assets/arm-scaled-cropped.jpg');
+//   background-repeat: no-repeat;
+// }
+
+// g {
+//   path {
+//     fill-opacity: 0;
+//     &:hover {
+//       stroke-width: 2px;
+//       stroke-opacity: 1;
+//       stroke: $b-purple;
+//     }
+//   }
+// }
+
+.page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: $m-size;
+  background-color: $off-white;
+}
+
+// Header
+.header {
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 10%;
+  background-color: $drk-blue;
+  width: 100%;
+  font-size: $m-size;
+
+  .link-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    a {
+      font-size: $l-size;
+      color: $b-yellow;
+    }
+  }
+}
+
+// Custom Button Component
+.custom-button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+
+  &.inverted {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+.get-patients {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.patient-list {
+  width: 60vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.patient-card-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #95dada;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+
+.patient-card-container:hover {
+  transform: scale(1.05);
+}
+
+.sign-in-sign-up-page {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+
+  .sign-in {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      margin: 10px 0;
+    }
+  }
+
+  .sign-up {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+
+    .title {
+      margin: 10px 0;
+    }
+  }
+}
+
+.new-patient-form {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  background-color: $drk-grey;
+}
+
+// Form Input
+
+$sub-color: grey;
+$main-color: black;
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $main-color;
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+
+  .date-picker-form-input {
+    background: none;
+    background-color: white;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $sub-color;
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .form-input {
+    background: none;
+    background-color: white;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $sub-color;
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .form-input-label {
+      @include shrinkLabel();
+    }
+  }
+
+  input[type='password'] {
+    letter-spacing: 0.3em;
+  }
+
+  .form-input-label {
+    color: $sub-color;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel();
+    }
+  }
+}
+
+.location-dropdown {
+  width: 400px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
+  position: absolute;
+  right: 0px;
+
+  .dropdown-patient-header {
+    height: 200px;
+  }
+
+  .empty-message {
+    font-size: 18px;
+    margin: 50px auto;
+  }
+
+  .location-items {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  button {
+    margin-top: auto;
+  }
+}
+
+.location-item {
+  width: 100%;
+  display: flex;
+  height: 80px;
+  margin-bottom: 15px;
+}
